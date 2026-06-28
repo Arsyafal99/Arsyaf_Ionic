@@ -2,19 +2,11 @@ import React from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { 
   IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, 
-  IonItem, IonLabel, IonButtons, IonBackButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonText
+  IonButtons, IonBackButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonText
 } from '@ionic/react';
 
-interface Task {
-  id: number;
-  title: string;
-  description: string;
-  deadline: string;
-  category: string;
-  priority: string;
-  image?: string;
-  isCompleted: boolean;
-}
+// Import dari file pusat
+import { Task } from '../types/Task';
 
 interface DetailProps {
   tasks: Task[];

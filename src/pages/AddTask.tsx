@@ -8,17 +8,8 @@ import {
 import { camera } from 'ionicons/icons';
 import { Camera, CameraResultType } from '@capacitor/camera';
 
-// Interface lengkap sesuai spesifikasi tugas
-interface Task {
-  id: number;
-  title: string;
-  description: string;
-  deadline: string;
-  category: string;
-  priority: string;
-  image?: string;
-  isCompleted: boolean;
-}
+// IMPORT TIPE DATA DARI SINI
+import { Task } from '../types/Task';
 
 interface AddTaskProps {
   tasks: Task[];
@@ -26,6 +17,7 @@ interface AddTaskProps {
 }
 
 const AddTask: React.FC<AddTaskProps> = ({ tasks, setTasks }) => {
+  // ... kode lainnya sama seperti yang kamu tulis ...
   const [taskTitle, setTaskTitle] = useState('');
   const [description, setDescription] = useState('');
   const [deadline, setDeadline] = useState<string>(new Date().toISOString().split('T')[0]);
@@ -58,8 +50,10 @@ const AddTask: React.FC<AddTaskProps> = ({ tasks, setTasks }) => {
     setTimeout(() => history.push('/home'), 1000);
   };
 
+  // ... kembalikan (return) komponennya seperti semula ...
   return (
     <IonPage>
+      {/* ... bagian JSX ... */}
       <IonHeader>
         <IonToolbar color="primary">
           <IonButtons slot="start"><IonBackButton defaultHref="/home" /></IonButtons>
@@ -100,7 +94,6 @@ const AddTask: React.FC<AddTaskProps> = ({ tasks, setTasks }) => {
           <IonLabel>Deadline: {new Date(deadline).toLocaleDateString('id-ID')}</IonLabel>
         </IonItem>
 
-        {/* Modal sudah diperbaiki agar bisa menutup dengan benar */}
         <IonModal ref={modal} trigger="open-date-modal">
           <IonContent className="ion-padding">
             <IonDatetime 

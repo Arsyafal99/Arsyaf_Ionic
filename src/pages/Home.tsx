@@ -7,17 +7,8 @@ import {
 } from '@ionic/react';
 import { add, trash, listOutline } from 'ionicons/icons';
 
-// Interface diperbarui agar sinkron dengan AddTask.tsx dan TaskDetail.tsx
-interface Task {
-  id: number;
-  title: string;
-  description: string;
-  deadline: string;
-  category: string;
-  priority: string;
-  image?: string;
-  isCompleted: boolean;
-}
+// Sudah menggunakan import dari folder types
+import { Task } from '../types/Task';
 
 interface HomeProps {
   tasks: Task[];
@@ -65,13 +56,12 @@ const Home: React.FC<HomeProps> = ({ tasks, onDelete, onToggle }) => {
               .sort((a, b) => (a.isCompleted === b.isCompleted ? 0 : a.isCompleted ? 1 : -1))
               .map(task => (
               <IonItemSliding key={task.id}>
-                {/* Ditambahkan routerLink agar item bisa diklik untuk melihat halaman Detail */}
                 <IonItem routerLink={`/task/${task.id}`}>
                   <IonCheckbox 
                     slot="start" 
                     checked={task.isCompleted} 
                     onIonChange={(e) => {
-                      e.stopPropagation(); // Mencegah halaman detail terbuka tidak sengaja saat klik checkbox
+                      e.stopPropagation(); 
                       onToggle(task.id);
                     }} 
                   />
@@ -79,7 +69,6 @@ const Home: React.FC<HomeProps> = ({ tasks, onDelete, onToggle }) => {
                     <h2 style={{ textDecoration: task.isCompleted ? 'line-through' : 'none' }}>
                       {task.title}
                     </h2>
-                    {/* Menampilkan informasi Kategori dan Prioritas tambahan */}
                     <p style={{ fontSize: '0.85rem', color: '#666', margin: '4px 0' }}>
                       {task.category} • Prioritas: {task.priority}
                     </p>
