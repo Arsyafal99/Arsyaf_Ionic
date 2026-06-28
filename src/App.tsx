@@ -7,15 +7,10 @@ import AddTask from './pages/AddTask';
 import '@ionic/react/css/core.css';
 import './theme/variables.css';
 
-setupIonicReact();
+// IMPORT INI YANG PENTING
+import { Task } from './types/Task';
 
-interface Task {
-  id: number;
-  title: string;
-  deadline: string;
-  image?: string;
-  isCompleted: boolean;
-}
+setupIonicReact();
 
 const App: React.FC = () => {
   const [tasks, setTasks] = useState<Task[]>(() => {

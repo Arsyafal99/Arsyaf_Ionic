@@ -1,8 +1,10 @@
 export interface Task {
   id: number;
-  text: string;
+  title: string;
   description: string;
+  deadline: string;
   category: string;
   priority: string;
-  completed: boolean;
+  image?: string;
+  isCompleted: boolean;
 }
