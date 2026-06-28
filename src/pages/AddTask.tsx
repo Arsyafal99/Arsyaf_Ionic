@@ -9,7 +9,7 @@ import { camera } from 'ionicons/icons';
 import { Camera, CameraResultType } from '@capacitor/camera';
 
 // IMPORT TIPE DATA DARI SINI
-import { Task } from '../type,Task';
+import { Task } from '../types,Task';
 
 interface AddTaskProps {
   tasks: Task[];
