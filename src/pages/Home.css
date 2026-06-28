@@ -1,0 +1,21 @@
+.date-modal {
+  --width: 320px !important;
+  --height: auto !important;
+  --border-radius: 24px !important;
+  --box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
+}
+
+/* Pastikan wrapper modal bersih */
+.modal-wrapper {
+  background: white !important;
+  padding: 10px !important;
+  border-radius: 24px !important;
+  overflow: hidden;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 15px;
+  border-top: 1px solid #eee;
+}
