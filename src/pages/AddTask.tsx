@@ -8,8 +8,8 @@ import {
 import { camera } from 'ionicons/icons';
 import { Camera, CameraResultType } from '@capacitor/camera';
 
-// IMPORT TIPE DATA DARI SINI
-import { Task } from '../types,Task';
+// Tanda koma sudah diganti menjadi garis miring
+import { Task } from '../types/Task';
 
 interface AddTaskProps {
   tasks: Task[];
@@ -17,7 +17,6 @@ interface AddTaskProps {
 }
 
 const AddTask: React.FC<AddTaskProps> = ({ tasks, setTasks }) => {
-  // ... kode lainnya sama seperti yang kamu tulis ...
   const [taskTitle, setTaskTitle] = useState('');
   const [description, setDescription] = useState('');
   const [deadline, setDeadline] = useState<string>(new Date().toISOString().split('T')[0]);
@@ -50,10 +49,8 @@ const AddTask: React.FC<AddTaskProps> = ({ tasks, setTasks }) => {
     setTimeout(() => history.push('/home'), 1000);
   };
 
-  // ... kembalikan (return) komponennya seperti semula ...
   return (
     <IonPage>
-      {/* ... bagian JSX ... */}
       <IonHeader>
         <IonToolbar color="primary">
           <IonButtons slot="start"><IonBackButton defaultHref="/home" /></IonButtons>
@@ -107,7 +104,7 @@ const AddTask: React.FC<AddTaskProps> = ({ tasks, setTasks }) => {
 
         <IonItem className="ion-margin-bottom" button onClick={takePhoto}>
           <IonLabel>Ambil Foto Tugas</IonLabel>
-          <IonIcon slot="end" icon={camera} />
+          <IonIcon slot="icon-only" icon={camera} />
           {image && <img src={image} style={{ width: '40px', height: '40px', marginLeft: '10px' }} />}
         </IonItem>
 

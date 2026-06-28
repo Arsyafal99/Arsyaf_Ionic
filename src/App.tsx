@@ -4,10 +4,11 @@ import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 import AddTask from './pages/AddTask';
+import TaskDetail from './pages/TaskDetail';
 import '@ionic/react/css/core.css';
 import './theme/variables.css';
 
-// IMPORT INI YANG PENTING
+// Import dari file pusat
 import { Task } from './types/Task';
 
 setupIonicReact();
@@ -41,6 +42,9 @@ const App: React.FC = () => {
           </Route>
           <Route exact path="/add-task">
             <AddTask tasks={tasks} setTasks={setTasks} />
+          </Route>
+          <Route exact path="/task/:id">
+            <TaskDetail tasks={tasks} setTasks={setTasks} />
           </Route>
           <Route exact path="/">
             <Redirect to="/home" />

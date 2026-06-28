@@ -7,7 +7,7 @@ import {
 } from '@ionic/react';
 import { add, trash, listOutline } from 'ionicons/icons';
 
-// Sudah menggunakan import dari folder types
+// Import dari file pusat
 import { Task } from '../types/Task';
 
 interface HomeProps {
@@ -23,7 +23,6 @@ const Home: React.FC<HomeProps> = ({ tasks, onDelete, onToggle }) => {
     return new Date(deadline) < new Date(new Date().toDateString());
   };
 
-  // Filter tugas berdasarkan judul
   const filteredTasks = tasks.filter(task => 
     task.title.toLowerCase().includes(searchText.toLowerCase())
   );
